@@ -19,4 +19,9 @@ ___
 
 1. [Clone this repository to your PC](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) 
 2. Try to run this app: $ mvn spring-boot:run
+3. Create a database in your PC
+4. [Set up required Environment Variables e.g.](https://www.jetbrains.com/help/objc/add-environment-variables-and-program-arguments.html)
+   - DATABASE_URL=jdbc:mysql://localhost:3306/{DATABASE_NAME};
+   - DATABASE_USER={DATABASE_USERNAME};
+   - DATABASE_PASSWORD={DATABASE_PASSWORD}
 ___
