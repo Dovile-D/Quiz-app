@@ -22,11 +22,14 @@ public class Statistic {
     private int score;
     @Column(name = "score_time")
     private LocalDateTime scoreTime;
-    @Column(name = "user_id")
+    @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
-    @Column(name = "category_id")
+    @ManyToOne
+    @JoinColumn(name = "category_id")
     private Category category;
-    @Column(name = "level_id")
+    @ManyToOne
+    @JoinColumn(name = "level_id")
     private Level level;
 
 }
