@@ -22,8 +22,8 @@ public class User {
     private String name;
     @Column(name = "email")
     private String email;
-    @OneToMany
-    @JoinColumn(name = "statistic_id")
+    @OneToMany(targetEntity = Statistic.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "statistic_FK", referencedColumnName = "id")
     private List<Statistic> statisticList;
 
 }
