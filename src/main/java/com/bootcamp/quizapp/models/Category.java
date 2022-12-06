@@ -6,23 +6,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
-
-
 @Entity
 @Data
 @RequiredArgsConstructor
 @AllArgsConstructor
-@Table(name="Users")
-public class User {
-
+@Table(name = "quiz_category")
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    @Column(name = "id")
     private int id;
-    @Column(name="name")
-    private String name;
-    @Column(name = "email")
-    private String email;
-
-
+    @Column(name = "category_name")
+    private String categoryName;
 }
