@@ -1,5 +1,6 @@
 package com.bootcamp.quizapp.models;
 
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,19 +12,15 @@ import java.util.List;
 @Data
 @RequiredArgsConstructor
 @AllArgsConstructor
-@Table(name="Users")
-public class User {
-
+@Table(name = "quiz_category")
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    @Column(name = "id")
     private int id;
-    @Column(name="name")
-    private String name;
-    @Column(name = "email")
-    private String email;
+    @Column(name = "category_name")
+    private String categoryName;
     @OneToMany(targetEntity = Statistic.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_FK", referencedColumnName = "id")
-    private List<Statistic> statisticList;
-
+    @JoinColumn(name = "category_FK", referencedColumnName = "id")
+    private List <Statistic> statisticList;
 }

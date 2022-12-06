@@ -11,19 +11,15 @@ import java.util.List;
 @Data
 @RequiredArgsConstructor
 @AllArgsConstructor
-@Table(name="Users")
-public class User {
-
+@Table(name = "difficulty_level")
+public class Level {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    @Column(name = "id")
     private int id;
-    @Column(name="name")
-    private String name;
-    @Column(name = "email")
-    private String email;
+    @Column(name = "level_name")
+    private String levelName;
     @OneToMany(targetEntity = Statistic.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_FK", referencedColumnName = "id")
+    @JoinColumn(name = "level_FK", referencedColumnName = "id")
     private List<Statistic> statisticList;
-
 }
