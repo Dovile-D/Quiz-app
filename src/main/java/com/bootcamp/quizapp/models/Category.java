@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Data
 @RequiredArgsConstructor
@@ -18,4 +20,7 @@ public class Category {
     private int id;
     @Column(name = "category_name")
     private String categoryName;
+    @OneToMany
+    @JoinColumn(name = "statistic_id")
+    private List <Statistic> statisticList;
 }
