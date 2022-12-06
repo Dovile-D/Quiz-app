@@ -22,14 +22,5 @@ public class Statistic {
     private int score;
     @Column(name = "score_time")
     private LocalDateTime scoreTime;
-    @ManyToOne
-//    @JoinColumn(name = "user_ids")
-    private User user;
-    @ManyToOne
-//    @JoinColumn(name = "category_id")
-    private Category category;
-    @ManyToOne
-//    @JoinColumn(name = "level_id")
-    private Level level;
 
 }
