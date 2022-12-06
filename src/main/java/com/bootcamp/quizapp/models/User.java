@@ -23,7 +23,7 @@ public class User {
     @Column(name = "email")
     private String email;
     @OneToMany(targetEntity = Statistic.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "statistic_FK", referencedColumnName = "id")
+    @JoinColumn(name = "user_FK", referencedColumnName = "id")
     private List<Statistic> statisticList;
 
 }

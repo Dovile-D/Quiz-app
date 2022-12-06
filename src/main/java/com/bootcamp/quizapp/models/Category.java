@@ -20,7 +20,7 @@ public class Category {
     private int id;
     @Column(name = "category_name")
     private String categoryName;
-    @OneToMany
-    @JoinColumn(name = "statistic_id")
+    @OneToMany(targetEntity = Statistic.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "category_FK", referencedColumnName = "id")
     private List <Statistic> statisticList;
 }

@@ -19,7 +19,7 @@ public class Level {
     private int id;
     @Column(name = "level_name")
     private String levelName;
-    @OneToMany
-    @JoinColumn(name = "statistic_id")
+    @OneToMany(targetEntity = Statistic.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "level_FK", referencedColumnName = "id")
     private List<Statistic> statisticList;
 }
