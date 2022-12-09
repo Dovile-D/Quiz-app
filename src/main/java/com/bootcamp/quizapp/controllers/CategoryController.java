@@ -20,8 +20,7 @@ public class CategoryController {
         return categoryRepository.findAll();
     }
 
-    @GetMapping("/categories/{id}")
-    public Category getCategory(@PathVariable int id) {
+     public Category getCategory(@PathVariable int id) {
         return categoryRepository.findById(id).orElseThrow(RuntimeException::new);
     }
 
