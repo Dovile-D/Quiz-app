@@ -25,7 +25,6 @@ public class CategoryController {
         return categoryRepository.findById(id).orElseThrow(RuntimeException::new);
     }
 
-
     @PutMapping("/categories/{id}")
     public ResponseEntity<Category> updateUser(@PathVariable int id, @RequestBody Category category) {
         Category currentCategory = categoryRepository.findById(id).orElseThrow(RuntimeException::new);

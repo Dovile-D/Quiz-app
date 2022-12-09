@@ -1,8 +1,10 @@
-body, html {
-background-color: #5ca4da;
+body {
+    /*    background-color: RGB(92, 164, 218);*/
+    background-color: #5ca4da;
 }
 
 .card {
+    /* background-color: white; */
     margin: 10px auto;
     border-radius: 10px;
 }
@@ -36,8 +38,12 @@ button {
     font-size: large;
 }
 
+.small-margin {
+    margin: 10px 0 0 0;
+}
+
 .startButton {
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 .startButton>a {
@@ -57,10 +63,7 @@ button {
 
 .form-check>input[type="text"],
 .form-check>input[type="email"],
-.form-check>input[type="password"],
-.form-register>input[type="email"],
-.form-register>input[type="password"],
-.form-register>div>input {
+.form-register>input {
     width: 90%;
     border: none;
     border-bottom: 1px solid silver;
