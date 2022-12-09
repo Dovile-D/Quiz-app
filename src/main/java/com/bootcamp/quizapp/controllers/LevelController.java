@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/")
 @RequiredArgsConstructor
 public class LevelController {
 
@@ -25,7 +25,7 @@ public class LevelController {
         return levelRepository.findById(id).orElseThrow(RuntimeException::new);
     }
 
-    @PutMapping("/level/{id}")
+    @PutMapping("/levels/{id}")
     public ResponseEntity<Level> updateUser(@PathVariable int id, @RequestBody Level level) {
         Level currentLevel = levelRepository.findById(id).orElseThrow(RuntimeException::new);
         currentLevel.setLevelName(level.getLevelName());

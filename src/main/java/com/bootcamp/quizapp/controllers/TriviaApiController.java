@@ -13,7 +13,7 @@ import org.springframework.web.client.RestTemplate;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1")
+@RequestMapping("/")
 @Builder
 public class TriviaApiController {
 

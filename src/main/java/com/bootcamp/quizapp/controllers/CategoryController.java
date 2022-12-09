@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/")
 @RequiredArgsConstructor
 public class CategoryController {
 
@@ -20,12 +20,13 @@ public class CategoryController {
         return categoryRepository.findAll();
     }
 
+    @GetMapping(value = "/categories/{id}")
      public Category getCategory(@PathVariable int id) {
         return categoryRepository.findById(id).orElseThrow(RuntimeException::new);
     }
 
 
-    @PutMapping("/categories/{id}")
+    @PutMapping(value = "/categories/{id}")
     public ResponseEntity<Category> updateUser(@PathVariable int id, @RequestBody Category category) {
         Category currentCategory = categoryRepository.findById(id).orElseThrow(RuntimeException::new);
         currentCategory.setCategoryName(category.getCategoryName());
