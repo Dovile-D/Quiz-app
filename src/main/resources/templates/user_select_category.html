@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://thymeleaf.org/">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<!--    <link rel="stylesheet" href="../static/css/index.css">-->
-    <link th:href="@{/index.css}" rel="stylesheet" type="text/css" />
-    <title>Quiz-app Categories</title>
-</head>
+<head th:replace="fragments" :: head>
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"-->
+<!--        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+<!--&lt;!&ndash;    <link rel="stylesheet" href="../static/css/index.css">&ndash;&gt;-->
+<!--    <link th:href="@{/index.css}" rel="stylesheet" type="text/css" />-->
+<!--    <title>Quiz-app Categories</title>-->
+<!--</head>-->
 
 <body>
     <div class="card login" style="width: 18rem;">
 
-        <img class="card-img-top" src="../static/img/cat.png" alt="Avatar">
+        <img class="card-img-top" src="cat.png" alt="Avatar">
         <div class="card-body">
 
             <h5 class="card-title" id="card-title">Category of questions</h5>
 
-            <form class="register"action="selectCategory">
+            <form class="register"action="difficulty">
                 <div class="user_options">
                     <br>
                     <input type="radio" name="category" id="art">
@@ -56,7 +57,7 @@
                     <br>
                 </div>
 
-                <button type="submit" class="btn btn-outline-primary btn-block">Continue</button>
+                <input type="submit" class="btn btn-outline-primary btn-block" value="Continue"></input>
             </form>
         </div>
     </div>
