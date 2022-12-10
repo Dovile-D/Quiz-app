@@ -2,6 +2,9 @@ package com.bootcamp.quizapp.controllers;
 
 import com.bootcamp.quizapp.dto.TriviaCategoryDto;
 import com.bootcamp.quizapp.dto.TriviaCategoryListDto;
+import com.bootcamp.quizapp.mappers.TriviaCategoryDtoToCategory;
+import com.bootcamp.quizapp.models.Category;
+import com.bootcamp.quizapp.repositories.CategoryRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Builder;
@@ -28,30 +31,8 @@ import java.util.stream.Stream;
 @Builder
 public class TriviaApiController {
 
-
-//    @GetMapping(value = "/getCategories")
-//    public String getCategoriesFromApi() throws JsonProcessingException {
-//        String url = "https://opentdb.com/api_category.php";
-//        RestTemplate restTemplate = new RestTemplate();
-//        String result = restTemplate.getForObject(url, String.class);
-//        log.info("____________start__________");
-//        log.info(result);
-//        log.info("______________end_________________");
-//
-//
-//        log.info("before creating bjectMapper instance");
-//        ObjectMapper om = new ObjectMapper();
-//        log.info("before adding to List");
-//        TriviaCategoryListDto triviaCategoryList = om.readValue(result, TriviaCategoryListDto.class);
-//
-//        log.info("before printing");
-//
-//        log.info(triviaCategoryList.toString());
-//
-////        String loudScreaming = result.getJSONObject("LabelData").getString("slogan");
-//
-//        return result;
-//    }
+private final TriviaCategoryDtoToCategory triviaMapper;
+private final CategoryRepository categoryRepository;
 
     @GetMapping(value = "/getCategories")
     public String getCat() throws JsonProcessingException {
@@ -68,10 +49,27 @@ public class TriviaApiController {
                 .collect(Collectors.toList());
         log.info("______checking____" + foo.getBody());
 
-//        list.forEach(o -> System.out.println(o.toString()));
-//        List<List <TriviaCategoryDto>> fullList = new ArrayList<>();
-//        fullList = list.stream().collect(Collectors.toList());
-//        fullList.forEach(System.out::println);
+        List<Category> categories = new ArrayList<>();
+        List<TriviaCategoryDto> catlistdto = new ArrayList<>();
+
+        List<List <TriviaCategoryDto>> fullList = new ArrayList<>();
+        fullList = list.stream().collect(Collectors.toList());
+        fullList.forEach(System.out::println);
+
+        for (List<TriviaCategoryDto> tcd:list
+             ) {
+            tcd.forEach(triviaMapper::convertCategoryDtoToCategoryEntity);
+            tcd.forEach(System.out::println);
+            catlistdto.addAll(tcd);
+
+        }
+
+        log.info(catlistdto.toString());
+        categories = catlistdto.stream().map(triviaMapper::convertCategoryDtoToCategoryEntity).collect(Collectors.toList());
+        categories.forEach(System.out::println);
+        categories.forEach(categoryRepository::save);
+
+
 
 
 

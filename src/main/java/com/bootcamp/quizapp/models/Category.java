@@ -24,7 +24,7 @@ public class Category {
     private String triviaId;
     @Column(name = "category_name")
     private String categoryName;
-    @OneToMany(targetEntity = Statistic.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "category_FK", referencedColumnName = "id")
-    private List <Statistic> statisticList;
+//    @OneToMany(targetEntity = Statistic.class, cascade = CascadeType.ALL)
+//    @JoinColumn(name = "category_FK", referencedColumnName = "id")
+//    private List <Statistic> statisticList;
 }
