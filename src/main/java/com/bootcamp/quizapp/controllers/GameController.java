@@ -41,4 +41,9 @@ public class GameController {
     public String showFullStatistics(){
         return "user_statistics.html";
     }
+
+    @GetMapping("/logout")
+    public String logout(){
+        return "index";
+    }
 }
