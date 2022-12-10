@@ -63,6 +63,7 @@ button {
 
 .form-check>input[type="text"],
 .form-check>input[type="email"],
+.form-check>input[type="password"],
 .form-register>input {
     width: 90%;
     border: none;
@@ -99,19 +100,34 @@ button {
     max-width: 60px;
     margin: 0;
     padding: 0;
-    margin-bottom: 20px;
-    ;
+    margin-bottom: 0px;
 }
 
-.avatars>img:hover {
-
+.avatars>img:hover
+{
+   background-color:rgb(190, 229, 235);
+    border-radius: 5px;
     border: 2px solid rgb(190, 229, 235);
 }
+/*
+.avatars>label {
+    display: block;
+    width: 60px;
+    height: 60px;
+}
+.avatars>input{
+display:none;}
+
+#demo:checked + avatar>label {
+    background: blue;
+    color: white;
+
+}
+*/
 
 /* REGISTER end*/
 
 /* STATISTICS TABLE */
-
 .table-sm {
     font-size: smaller;
     min-width: 100%;

@@ -1,14 +1,5 @@
 package com.bootcamp.quizapp.controllers;
 
-
-import com.bootcamp.quizapp.controllers.StartGame;
-import com.bootcamp.quizapp.controllers.CategoryController;
-import com.bootcamp.quizapp.controllers.DifficultyController;
-import com.bootcamp.quizapp.controllers.LevelController;
-import com.bootcamp.quizapp.controllers.NewUser;
-import com.bootcamp.quizapp.controllers.UserLogin;
-import com.bootcamp.quizapp.controllers.UserOptions;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,7 +8,37 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class GameController {
-    @GetMapping("/singleGameStats")
-    public String userWantsToPlay() { return "single_game_statistics.html"; }
-//
+
+    @GetMapping("/login")  // OK
+    public String showLogin(){ return ("login"); }
+
+    @GetMapping("/")  // OK
+    public String showFrontPage(){return ("index");}
+
+    @GetMapping("/userOptions")
+    public String showRegisteredUserOptions(){ return ("user_option.html"); }
+
+    @GetMapping("/selectCategory")  // OK
+    public String showSelectCategory(){
+        return ("selectCategory");
+    }
+
+    @GetMapping("/singleGameStatistics") // OK
+    public String showSingleGameStatistics() { return "singleGameStatistics"; }
+//    when user is not a registered one, then the redirect should be back to index.html
+
+    @GetMapping("/difficulty") //OK
+    public String openLogin(){
+        return ("selectDifficulty.html");
+    }
+
+    @GetMapping("/playGame") //OK
+    public String startGameCategory(){
+        return ("game.html");
+    }
+
+    @GetMapping("/statistics")
+    public String showFullStatistics(){
+        return "user_statistics.html";
+    }
 }

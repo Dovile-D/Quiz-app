@@ -2,16 +2,6 @@
 <html lang="en" xmlns:th="http://thymeleaf.org/">
 
 <head th:replace="fragments" :: head>
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
-<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"-->
-<!--        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
-<!--&lt;!&ndash;    <link rel="stylesheet" href="../static/css/index.css">&ndash;&gt;-->
-<!--    <link th:href="@{/index.css}" rel="stylesheet" type="text/css" />-->
-<!--    <title>Quiz-app Login</title>-->
-<!--</head>-->
 
 <body>
     <div class="card login" style="width: 18rem;">
@@ -21,22 +11,17 @@
 
             <h5 class="card-title" id="card-title">Let's roll!</h5>
 
-<!--            <form >-->
-<!--                class="userOptions"-->
-                <div class="user_options">
-                    <br><br>
-                    <form id="play" action="play">
-                    <input type="submit" name="playGame" class="btn btn-outline-info btn-block" value="Play Game" >
-                    </form>
-                    <br>
-                    <form id="statistics" action="statistics">
-                    <input  type="submit" name="stats" class="btn btn-outline-info btn-block" value="Statistics" >
-                    </form>
-                        <br>
-                </div>
-
-<!--                <button type="button" class="btn btn-outline-primary btn-block">Continue</button>-->
-<!--            </form>-->
+            <div class="user_options">
+                <br><br>
+                <form id="play" action="selectCategory">
+                    <input type="submit" name="playGame" class="btn btn-outline-info btn-block" value="Play">
+                </form>
+                <br>
+                <form id="statistics" action="statistics">
+                    <input type="submit" name="stats" class="btn btn-outline-info btn-block" value="Your Statistics">
+                </form>
+                <br>
+            </div>
         </div>
     </div>
 
