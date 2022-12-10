@@ -27,8 +27,14 @@ public class TriviaApiController {
         log.info(result);
         log.info("______________end_________________");
 
+//        String loudScreaming = result.getJSONObject("LabelData").getString("slogan");
+
         return result;
     }
+
+//    String jsonResult = UtilMethods.getJSON(this.jsonURL, null);
+//    json = new JSONObject(jsonResult);
+
 
     @GetMapping(value = "/getQuestions")
     public String getQuestionsFromApi() {

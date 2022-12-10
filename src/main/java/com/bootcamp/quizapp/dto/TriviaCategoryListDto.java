@@ -12,6 +12,5 @@ import java.util.List;
 @AllArgsConstructor
 
 public class TriviaCategoryListDto {
-    @JsonProperty("trivia_categories")
-    private List<String> categories;
+    private List<TriviaCategoryDto> triviaCategories;
 }
