@@ -9,6 +9,12 @@ body {
     border-radius: 10px;
 }
 
+h2 {
+    color: #5ca4da;
+    font-weight: 200;
+    padding-bottom: 10px;
+}
+
 h5 {
     color: #5ca4da;
     font-weight: 800;
@@ -96,19 +102,26 @@ button {
     margin-top: 20px;
 }
 
-.avatars>img {
+.avatars>img,
+.avatars>label>img {
     max-width: 60px;
     margin: 0;
     padding: 0;
     margin-bottom: 0px;
 }
 
-.avatars>img:hover
-{
-   background-color:rgb(190, 229, 235);
+.avatars>img:hover,
+.avatars>label>img:hover,
+.avatars>input:checked+label>img {
+    background-color: rgb(190, 229, 235);
     border-radius: 5px;
     border: 2px solid rgb(190, 229, 235);
 }
+
+.avatars>input {
+    display: none;
+}
+
 /*
 .avatars>label {
     display: block;
