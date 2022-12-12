@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserDetailsService implements org.springframework.security.core.userdetails.UserDetailsService {
     private final static String USER_NOT_FOUND_MSG =
-            "user with email %s not found";
+            "User with entered email %s not found, please try again";
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private UserRepository userRepository;
 
@@ -33,7 +33,7 @@ public class UserDetailsService implements org.springframework.security.core.use
 
         if (userExists) {
 
-            throw new IllegalStateException("email already taken");
+            throw new IllegalStateException("This email already taken");
         }
         String encodedPassword = bCryptPasswordEncoder
                 .encode(user.getPassword());
