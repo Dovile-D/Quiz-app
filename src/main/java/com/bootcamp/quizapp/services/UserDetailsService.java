@@ -1,6 +1,7 @@
 package com.bootcamp.quizapp.services;
 
 import com.bootcamp.quizapp.models.User;
+
 import com.bootcamp.quizapp.repositories.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
