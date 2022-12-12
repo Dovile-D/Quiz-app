@@ -1,9 +1,7 @@
 package com.bootcamp.quizapp.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,6 +11,8 @@ import java.util.Collections;
 import java.util.List;
 
 @Entity
+@Setter
+@Getter
 @Data
 @RequiredArgsConstructor
 @AllArgsConstructor
@@ -77,5 +77,14 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public String getEmail() {
+        return email;
+
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
