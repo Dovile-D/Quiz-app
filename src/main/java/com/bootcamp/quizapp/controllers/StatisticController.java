@@ -1,6 +1,6 @@
 package com.bootcamp.quizapp.controllers;
 
-import com.bootcamp.quizapp.dto.StatisticFroFeDto;
+import com.bootcamp.quizapp.dto.StatisticFromFeDto;
 import com.bootcamp.quizapp.repositories.StatisticRepository;
 import com.bootcamp.quizapp.services.StatisticService;
 import lombok.RequiredArgsConstructor;
@@ -25,13 +25,19 @@ public class StatisticController {
 //    get multiple query parameters
 //     http://localhost:8080/singleGameStatistics?categories=arts_and_literature&difficulty=easy&score=6&userID=&score=
     @GetMapping(name = "/singleGameStatistics")
-    public StatisticFroFeDto getStatisticFromFe(@RequestParam String userEmail,
-                                                                     @RequestParam String categoryName,
-                                                                     @RequestParam String levelName,
-                                                                     @RequestParam String score)     {
+    public StatisticFromFeDto getStatisticFromFe(@RequestParam String userEmail,
+                                                 @RequestParam String categoryName,
+//                                                                     @RequestParam String levelName,
+                                                 @RequestParam String score)     {
 
+//        building Statistic object from received params
+       StatisticFromFeDto statisticEntry = StatisticFromFeDto.builder()
+               .userEmail(userEmail)
+               .categoryName(categoryName)
+               .score(score)
+               .build();
 
-        log.info(":: email = {}, categoryName = {}, levelName = {}, score = {} ", userEmail, categoryName, levelName, score);
-        return statisticService.getStatisticByUserCategoryLevelAndScore();
+        log.info(":: email = {}, categoryName = {}, score = {} ", userEmail, categoryName, score);
+        return statisticEntry;
     }
 }

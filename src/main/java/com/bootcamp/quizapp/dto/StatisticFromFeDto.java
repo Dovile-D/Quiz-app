@@ -9,10 +9,9 @@ import lombok.RequiredArgsConstructor;
 @Builder
 @RequiredArgsConstructor
 @AllArgsConstructor
-public class StatisticFroFeDto {
+public class StatisticFromFeDto {
 
     private String userEmail;
     private String categoryName;
-    private String levelName;
     private String score;
 }

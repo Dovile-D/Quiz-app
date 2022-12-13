@@ -2,9 +2,11 @@ package com.bootcamp.quizapp.models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
+@Builder
 @Entity
 @Data
 @RequiredArgsConstructor
@@ -22,9 +24,9 @@ public class Statistic {
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
-    @JoinColumn(name = "difficulty_id")
-    @ManyToOne
-    private Level difficulty;
+//    @JoinColumn(name = "difficulty_id")
+//    @ManyToOne
+//    private Level difficulty;
     @JoinColumn(name = "user_id")
     @ManyToOne
     private User user;
