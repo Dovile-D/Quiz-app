@@ -14,4 +14,5 @@ public class StatisticFroFeDto {
     private String userEmail;
     private String categoryName;
     private String levelName;
+    private String score;
 }
