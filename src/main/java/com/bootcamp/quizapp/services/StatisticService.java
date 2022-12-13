@@ -14,25 +14,9 @@ public class StatisticService {
 
     private final StatisticRepository statisticRepository;
 
-    public StatisticFromFeDto getStatisticByUserCategoryAndScore() {
-        return null;
-    }
+  public int getAverageScore(List<Statistic> statisticList, int userId) {
 
-    public StatisticFromFeDto setStatisticEntry(){
-        return null;
-    }
 
-    public int getAverageStatisticValue(int score) {
-
-        return score / 20;
-
-    }
-
-    public List<Statistic> groupValuesByCategory() {
-        return null;
-    }
-
-    public
-
+  }
 
 }
