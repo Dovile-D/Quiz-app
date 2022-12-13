@@ -20,7 +20,10 @@ public class Statistic {
     private int id;
     @Column(name = "score")
     private int score;
-    @Column(name = "score_time")
-    private LocalDateTime scoreTime;
+    //changed from timestamp to these:
+    @Column(name = "category")
+    private int category;
+    @Column(name = "difficulty")
+    private int difficulty;
 
 }
