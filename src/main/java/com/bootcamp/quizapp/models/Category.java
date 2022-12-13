@@ -3,11 +3,13 @@ package com.bootcamp.quizapp.models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
 
+@Builder
 @Entity
 @Data
 @RequiredArgsConstructor
@@ -20,7 +22,7 @@ public class Category {
     private int id;
     @Column(name = "category_name")
     private String categoryName;
-    @OneToMany(targetEntity = Statistic.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "category_FK", referencedColumnName = "id")
-    private List <Statistic> statisticList;
+//    @OneToMany(targetEntity = Statistic.class, cascade = CascadeType.ALL)
+//    @JoinColumn(name = "category_FK", referencedColumnName = "id")
+//    private List <Statistic> statisticList;
 }
