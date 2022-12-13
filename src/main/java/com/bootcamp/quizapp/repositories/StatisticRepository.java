@@ -4,7 +4,9 @@ import com.bootcamp.quizapp.models.Statistic;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 
+import java.util.List;
+
 public interface StatisticRepository extends CrudRepository<Statistic, Integer> {
 
-    Statistic getStatisticByUserId(int id);
+    List<Statistic> getStatisticsByUserId(int id);
 }
