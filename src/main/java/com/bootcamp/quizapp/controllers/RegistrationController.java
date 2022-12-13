@@ -1,6 +1,6 @@
 package com.bootcamp.quizapp.controllers;
 
-import com.bootcamp.quizapp.models.RegistrationRequestDto;
+import com.bootcamp.quizapp.dto.RegistrationRequestDto;
 import com.bootcamp.quizapp.services.RegistrationService;
 
 import lombok.AllArgsConstructor;

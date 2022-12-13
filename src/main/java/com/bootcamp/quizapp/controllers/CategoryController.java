@@ -17,10 +17,10 @@ public class CategoryController {
 
     private final CategoryRepository categoryRepository;
 
-    @GetMapping(value = "/categories")
-    public List<Category> getCategories() {
-        return categoryRepository.findAll();
-    }
+//    @GetMapping(value = "/categories")
+//    public List<Category> getCategories() {
+//        return categoryRepository.findAll();
+//    }
 
     @GetMapping(value = "/categories/{id}")
      public Category getCategory(@PathVariable int id) {

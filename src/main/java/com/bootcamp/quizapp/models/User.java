@@ -21,7 +21,7 @@ public class User implements UserDetails {
 
     @Id
     //changed from IDENTITY TO AUTO
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private int id;
     @Column(name="username")
@@ -34,9 +34,9 @@ public class User implements UserDetails {
     private String password;
     @Column(name = "avatar")
     private String avatar;
-    @OneToMany(targetEntity = Statistic.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_FK", referencedColumnName = "id")
-    private List<Statistic> statisticList;
+//    @OneToMany(targetEntity = Statistic.class, cascade = CascadeType.ALL)
+//    @JoinColumn(name = "user_FK", referencedColumnName = "id")
+//    private List<Statistic> statisticList;
 
     public User (String username, String email, String password, String avatar){
         this.username=username;
