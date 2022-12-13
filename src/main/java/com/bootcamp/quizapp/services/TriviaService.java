@@ -4,7 +4,6 @@ import com.bootcamp.quizapp.dto.TriviaCategoryDto;
 import com.bootcamp.quizapp.dto.TriviaCategoryListDto;
 import com.bootcamp.quizapp.mappers.TriviaCategoryDtoToCategory;
 import com.bootcamp.quizapp.models.Category;
-import com.bootcamp.quizapp.repositories.CategoryRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
