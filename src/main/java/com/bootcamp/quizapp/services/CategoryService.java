@@ -13,7 +13,12 @@ public class CategoryService {
 
     private final CategoryRepository categoryRepository;
 
-    public void save(List<Category> categories) {
-        categories.forEach(categoryRepository::save);
-    }
+
+//    public void upsertAll(List<Category> categories) {
+//        for(Category category: categories) {
+//            if(!category.getTriviaId().equalsIgnoreCase(categoryRepository.findCategoryByTriviaId(category.getTriviaId()))) {
+//                categoryRepository.save(category);
+//            }
+//        }
+//    }
 }

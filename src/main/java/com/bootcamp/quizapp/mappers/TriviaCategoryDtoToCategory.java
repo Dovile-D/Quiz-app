@@ -10,7 +10,7 @@ public class TriviaCategoryDtoToCategory {
     public Category convertCategoryDtoToCategoryEntity(TriviaCategoryDto triviaCategoryDto) {
         Category category = Category.builder()
                 .categoryName(triviaCategoryDto.getName())
-                .triviaId(triviaCategoryDto.getId())
+//                .triviaId(triviaCategoryDto.getId())
                 .build();
         return category;
     }

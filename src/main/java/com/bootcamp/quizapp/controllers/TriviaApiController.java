@@ -14,14 +14,11 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 
@@ -32,30 +29,42 @@ import java.util.stream.Collectors;
 @Builder
 public class TriviaApiController {
 
-private final TriviaCategoryDtoToCategory triviaMapper;
-private final CategoryRepository categoryRepository;
-private final TriviaService triviaService;
-private final CategoryService categoryService;
+    private final TriviaCategoryDtoToCategory triviaMapper;
+    private final CategoryRepository categoryRepository;
+    private final TriviaService triviaService;
+    private final CategoryService categoryService;
+
 
     @GetMapping(value = "/getCategories")
     public String getCategories() throws JsonProcessingException {
 
+        String url = "https://the-trivia-api.com/api/categories";
         RestTemplate restTemplate = new RestTemplate();
-        String url = "https://opentdb.com/api_category.php";
 
         List<List<TriviaCategoryDto>> primaryList = triviaService.getJsonListAsObjects(url, restTemplate);
         List<TriviaCategoryDto> triviaCategoryDtos = triviaService.getListOfTriviaCategoryDto(primaryList);
-        List<Category> categories = triviaService.getCategories (triviaCategoryDtos, triviaMapper);
-        categoryService.save(categories);
+
+        List<Category> categories = triviaService.getCategories(triviaCategoryDtos, triviaMapper);
+
+//        categoryService.upsertAll(categories);
 
         return categories.toString();
-        
+
     }
+
+    @RequestMapping(value = "/getCategories", method = RequestMethod.DELETE)
+    @ResponseBody
+    public String deleteAll() {
+        categoryRepository.deleteAll();
+        return "Successfully deleted all enitities";
+    }
+
 
 
     @GetMapping(value = "/getQuestions")
     public String getQuestionsFromApi() {
-        String url = "https://opentdb.com/api.php?amount=50&category=12&difficulty=medium";
+//        String url = "https://opentdb.com/api.php?amount=50&category=12&difficulty=medium";
+        String url = "https://the-trivia-api.com/api/categories";
         RestTemplate restTemplate = new RestTemplate();
         String result = restTemplate.getForObject(url, String.class);
         log.info("____________start__________");
@@ -64,6 +73,7 @@ private final CategoryService categoryService;
 
         return result;
     }
+
 
 }
 

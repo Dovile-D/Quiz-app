@@ -1,0 +1,10 @@
+INSERT INTO quiz_category (category_name) VALUES ('Arts & Literature');
+INSERT INTO quiz_category (category_name) VALUES ('Film & TV');
+INSERT INTO quiz_category (category_name) VALUES ('Food & Drink');
+INSERT INTO quiz_category (category_name) VALUES ('General Knowledge');
+INSERT INTO quiz_category (category_name) VALUES ('Geography');
+INSERT INTO quiz_category (category_name) VALUES ('History');
+INSERT INTO quiz_category (category_name) VALUES ('Music');
+INSERT INTO quiz_category (category_name) VALUES ('Science');
+INSERT INTO quiz_category (category_name) VALUES ('Society & Culture');
+INSERT INTO quiz_category (category_name) VALUES ('Sport & Leisure');

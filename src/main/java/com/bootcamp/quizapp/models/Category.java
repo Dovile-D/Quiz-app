@@ -20,8 +20,6 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
-    @Column(name = "trivia_id")
-    private String triviaId;
     @Column(name = "category_name")
     private String categoryName;
 //    @OneToMany(targetEntity = Statistic.class, cascade = CascadeType.ALL)

@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 
 @RestController
@@ -23,6 +25,12 @@ public class CategoryController {
     @GetMapping(value = "/categories/{id}")
      public Category getCategory(@PathVariable int id) {
         return categoryRepository.findById(id).orElseThrow(RuntimeException::new);
+    }
+
+    @PostMapping(value = "/categories")
+    public ResponseEntity<Category> createCategory(@RequestBody Category category) throws URISyntaxException {
+        Category savedCategory = categoryRepository.save(category);
+        return ResponseEntity.created(new URI("/categories/" + savedCategory.getId())).body(savedCategory);
     }
 
 
