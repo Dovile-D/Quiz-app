@@ -4,6 +4,7 @@ import com.bootcamp.quizapp.dto.StatisticFromFeDto;
 import com.bootcamp.quizapp.models.Statistic;
 import com.bootcamp.quizapp.repositories.CategoryRepository;
 import com.bootcamp.quizapp.repositories.UserRepository;
+import com.bootcamp.quizapp.services.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -13,11 +14,14 @@ public class StatisticFromFeDtoToStatistic {
 
     private final UserRepository userRepository;
     private final CategoryRepository categoryRepository;
+    private final CategoryService categoryService;
 
     public Statistic mapStatisticDtoToStatistic(StatisticFromFeDto statisticFromFeDto) {
+        String properCategoryName = categoryService.getProperCategoryName(statisticFromFeDto.getCategoryName());
+
         Statistic statistic = Statistic.builder()
                 .user(userRepository.getUserByEmail(statisticFromFeDto.getUserEmail()))
-                .category(categoryRepository.getCategoryByCategoryName(statisticFromFeDto.getCategoryName()))
+                .category(categoryRepository.getCategoryByCategoryName(properCategoryName))
                 .score(Integer.parseInt(statisticFromFeDto.getScore()))
                 .build();
         return statistic;

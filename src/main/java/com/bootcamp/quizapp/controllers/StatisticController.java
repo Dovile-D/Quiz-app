@@ -1,6 +1,8 @@
 package com.bootcamp.quizapp.controllers;
 
 import com.bootcamp.quizapp.dto.StatisticFromFeDto;
+import com.bootcamp.quizapp.mappers.StatisticFromFeDtoToStatistic;
+import com.bootcamp.quizapp.models.Statistic;
 import com.bootcamp.quizapp.repositories.StatisticRepository;
 import com.bootcamp.quizapp.services.StatisticService;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +20,7 @@ public class StatisticController {
 
     private final StatisticService statisticService;
     private final StatisticRepository statisticRepository;
+    private final StatisticFromFeDtoToStatistic statisticMapper;
 
 //     http://localhost:8080/registered?name=vardas&email=vardas%40gmail.com&password=slaptazodis&avatar=bear
 
@@ -27,7 +30,6 @@ public class StatisticController {
     @GetMapping(name = "/singleGameStatistics")
     public StatisticFromFeDto getStatisticFromFe(@RequestParam String userEmail,
                                                  @RequestParam String categoryName,
-//                                                                     @RequestParam String levelName,
                                                  @RequestParam String score)     {
 
 //        building Statistic object from received params
@@ -38,6 +40,14 @@ public class StatisticController {
                .build();
 
         log.info(":: email = {}, categoryName = {}, score = {} ", userEmail, categoryName, score);
+
+//        mapping dto to entity:
+        Statistic mappedEntry = statisticMapper.mapStatisticDtoToStatistic(statisticEntry);
+        log.info(":: mapped Statistic {}", mappedEntry.toString());
+
+//        saving entity to DB:
+        statisticRepository.save(mappedEntry);
+
         return statisticEntry;
     }
 }
