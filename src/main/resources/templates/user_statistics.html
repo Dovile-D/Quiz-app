@@ -1,79 +1,93 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://thymeleaf.org/">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<!--    <link rel="stylesheet" href="../static/css/index.css">-->
-    <link th:href="@{/index.css}" rel="stylesheet" type="text/css" />
-    <title>Quiz-app Login</title>
-</head>
+<head th:replace="fragments" :: head>
 
 <body>
 
     <div class="card login" style="width: 18rem;">
 
-        <img class="card-img-top" src="../static/img/cat.png" alt="Avatar">
+        <img class="card-img-top" src="cat.png" alt="Avatar">
         <div class="card-body">
 
             <h5 class="card-title" id="card-title">You are doing great!</h5>
 
             <div class="user-statistics">
                 <table class="table-sm  table-hover">
-                    <!-- table-striped -->
+                    <p>Your correct answer averages</p>
                     <thead class="thead-light table-info">
                         <th scope="col">Category</th>
-                        <th scope="col">Average correct answers</th>
+                        <th scope="col">Easy</th>
+                        <th scope="col">Medium</th>
+                        <th scope="col">Hard</th>
                     </thead>
                     <tbody>
                         <tr>
                             <td>Arts & Literature</td>
                             <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
                         </tr>
                         <tr>
                             <td>Film & TV</td>
+                            <td>0</td>
+                            <td>0</td>
                             <td>0</td>
                         </tr>
                         <tr>
                             <td>Food & Drink</td>
                             <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
                         </tr>
                         <tr>
                             <td>General Knowledge</td>
+                            <td>0</td>
+                            <td>0</td>
                             <td>0</td>
                         </tr>
                         <tr>
                             <td>Geography</td>
                             <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
                         </tr>
                         <tr>
                             <td>History</td>
+                            <td>0</td>
+                            <td>0</td>
                             <td>0</td>
                         </tr>
                         <tr>
                             <td>Music</td>
                             <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
                         </tr>
                         <tr>
                             <td>Science</td>
+                            <td>0</td>
+                            <td>0</td>
                             <td>0</td>
                         </tr>
                         <tr>
                             <td>Society & Culture</td>
                             <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
                         </tr>
                         <tr>
                             <td>Sport & Leisure</td>
+                            <td>0</td>
+                            <td>0</td>
                             <td>0</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <button type="button" class="btn btn-outline-primary btn-block">Close</button>
-
+            <form action="userOptions">
+                <button type="submit" class="btn btn-outline-primary btn-block">Close</button>
+            </form>
         </div>
     </div>
 
