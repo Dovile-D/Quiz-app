@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org/">
+
+<head th:replace="fragments" :: head>
+
+<body>
+    <div class="card login" style="width: 18rem;">
+        <img class="card-img-top" src="hey.png" alt="Question mark image">
+        <div class="card-body">
+            <h5 class="card-title" id="card-title">Welcome to Quiz-app!</h5>
+            <form action="userOptions">
+                <div class="form-check credentials">
+                    <input type="email" name="email" id="email" placeholder="E-mail" required>
+                    <input type="password" name="password" id="password" placeholder="Password" required>
+                </div>
+                <input type="submit" class="btn btn-outline-primary btn-block" value="Log in">
+            </form>
+            <br>
+            <form action="registerNew">
+                <input type="submit" class="btn btn-outline-secondary btn-block btn-sm"
+                    value="New User? Register here!">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

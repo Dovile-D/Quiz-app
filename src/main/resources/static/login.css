@@ -1,0 +1,13 @@
+.label {
+    color: blue;
+}
+
+.newUser {
+    text-align: center;
+}
+
+form>input {
+    border-radius: 10px;
+    margin-bottom: 5px;
+
+}

@@ -24,4 +24,5 @@ ___
    - DATABASE_URL=jdbc:mysql://localhost:3306/{DATABASE_NAME};
    - DATABASE_USER={DATABASE_USERNAME};
    - DATABASE_PASSWORD={DATABASE_PASSWORD}
+5. Checkout to your branch: git checkout -b feature/<branch_name>
 ___
