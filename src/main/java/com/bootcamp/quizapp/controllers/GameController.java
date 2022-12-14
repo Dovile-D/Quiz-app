@@ -23,8 +23,11 @@ public class GameController {
         return ("selectCategory");
     }
 
-    @GetMapping("/singleGameStatistics") // OK
-    public String showSingleGameStatistics() { return "singleGameStatistics"; }
+//    @GetMapping("/singleGameStatistics") // OK
+//    public String showSingleGameStatistics() {
+//
+//
+//        return "singleGameStatistics"; }
 //    when user is not a registered one, then the redirect should be back to index.html
 
     @GetMapping("/difficulty") //OK
