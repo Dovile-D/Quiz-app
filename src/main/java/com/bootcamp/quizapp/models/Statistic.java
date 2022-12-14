@@ -2,11 +2,11 @@ package com.bootcamp.quizapp.models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
-import java.time.LocalDateTime;
-
+@Builder
 @Entity
 @Data
 @RequiredArgsConstructor
@@ -21,9 +21,14 @@ public class Statistic {
     @Column(name = "score")
     private int score;
     //changed from timestamp to these:
-    @Column(name = "category")
-    private int category;
-    @Column(name = "difficulty")
-    private int difficulty;
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+//    @JoinColumn(name = "difficulty_id")
+//    @ManyToOne
+//    private Level difficulty;
+    @JoinColumn(name = "user_id")
+    @ManyToOne
+    private User user;
 
 }

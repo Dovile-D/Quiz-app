@@ -6,26 +6,35 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/")
 @RequiredArgsConstructor
 public class CategoryController {
 
     private final CategoryRepository categoryRepository;
 
-    @GetMapping(value = "/categories")
-    public List<Category> getCategories() {
-        return categoryRepository.findAll();
-    }
+//    @GetMapping(value = "/categories")
+//    public List<Category> getCategories() {
+//        return categoryRepository.findAll();
+//    }
 
-    @GetMapping("/categories/{id}")
-    public Category getCategory(@PathVariable int id) {
+    @GetMapping(value = "/categories/{id}")
+     public Category getCategory(@PathVariable int id) {
         return categoryRepository.findById(id).orElseThrow(RuntimeException::new);
     }
 
-    @PutMapping("/categories/{id}")
+    @PostMapping(value = "/categories")
+    public ResponseEntity<Category> createCategory(@RequestBody Category category) throws URISyntaxException {
+        Category savedCategory = categoryRepository.save(category);
+        return ResponseEntity.created(new URI("/categories/" + savedCategory.getId())).body(savedCategory);
+    }
+
+
+    @PutMapping(value = "/categories/{id}")
     public ResponseEntity<Category> updateUser(@PathVariable int id, @RequestBody Category category) {
         Category currentCategory = categoryRepository.findById(id).orElseThrow(RuntimeException::new);
         currentCategory.setCategoryName(category.getCategoryName());

@@ -1,4 +1,4 @@
-package com.bootcamp.quizapp.models;
+package com.bootcamp.quizapp.dto;
 
 import lombok.*;
 
