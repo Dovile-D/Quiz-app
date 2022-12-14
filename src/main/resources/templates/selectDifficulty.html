@@ -29,34 +29,39 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
             crossorigin="anonymous"></script>
-    <script src="./difficulty.js" defer></script>
+    <script src="./difficulty.js"></script>
     <!-- <script src=game.js defer></script> -->
     <title>Quiz-app</title>
 </head>
 
 <body>
     <div class="card login" style="width: 18rem;">
+
         <img class="card-img-top" src="cat.png" alt="Avatar">
         <div class="card-body">
+
             <h5 class="card-title" id="card-title">Dificulty</h5>
+
             <form class="difficulty" action="playGame">
                 <div class="user_options">
                     <br>
-                    <input type="radio" name="difficulty" value="easy" checked></input>
+                    <input type="radio" name="difficulty" value="easy" checked>
                     <label for="easy">Easy</label>
                     <br>
-                    <input type="radio" name="difficulty" value="medium"></input>
+                    <input type="radio" name="difficulty" value="medium">
                     <label for="medium">Medium</label>
                     <br>
-                    <input type="radio" name="difficulty" value="hard"></input>
+                    <input type="radio" name="difficulty" value="hard">
                     <label for="hard">Hard</label>
                     <br>
                 </div>
-                    <input type="submit" class="btn btn-outline-primary btn-block" value="Continue" id="difficultyButton" />
-<!--                    </input>-->
+<!--                <input type="submit" class="btn btn-outline-primary btn-block" value="Continue"></input>-->
+                    <input type="submit" class="btn btn-outline-primary btn-block" id="difficultyButton" value="Continue"></input>
+                <!--                <button type="submit" class="btn btn-outline-primary btn-block" id="difficultyButton">Continue</button>-->
             </form>
         </div>
     </div>
+<!--    <script src="./difficulty.js"></script>-->
 </body>
 
 </html>
