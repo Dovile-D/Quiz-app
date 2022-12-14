@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 public class UserService {
 
     //    method to convert category name values from url to values in DB
-    public String getProperCategoryName(String emailFromUrl) {
+    public String getProperEmail(String emailFromUrl) {
 
         String convertedEmail = emailFromUrl.replace("%", "@");
 

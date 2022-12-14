@@ -5,6 +5,7 @@ import com.bootcamp.quizapp.mappers.StatisticFromFeDtoToStatistic;
 import com.bootcamp.quizapp.models.Statistic;
 import com.bootcamp.quizapp.repositories.StatisticRepository;
 import com.bootcamp.quizapp.services.StatisticService;
+import com.bootcamp.quizapp.services.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.ui.ModelMap;
@@ -23,6 +24,7 @@ public class StatisticController {
     private final StatisticService statisticService;
     private final StatisticRepository statisticRepository;
     private final StatisticFromFeDtoToStatistic statisticMapper;
+    private final UserService userService;
 
 //     http://localhost:8080/registered?name=vardas&email=vardas%40gmail.com&password=slaptazodis&avatar=bear
 
@@ -34,7 +36,7 @@ public class StatisticController {
         //        building Statistic object from received params
         StatisticFromFeDto statisticEntry = StatisticFromFeDto.builder()
                 .userEmail(userEmail)
-                .categoryName(categoryName)
+                .categoryName(userService.getProperEmail(categoryName))
                 .score(score)
                 .build();
 
