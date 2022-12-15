@@ -9,18 +9,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class GameController {
 
-
-
     @GetMapping("/")  // OK
     public String showFrontPage(){return ("index");}
-
-
 
     @GetMapping("/selectCategory")  // OK
     public String showSelectCategory(){
         return ("selectCategory");
     }
-
 
     @GetMapping("/difficulty") //OK
     public String openLogin(){
@@ -31,7 +26,6 @@ public class GameController {
     public String startGameCategory(){
         return ("game.html");
     }
-
 
     @GetMapping("/logout")
     public String logout(){

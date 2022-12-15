@@ -24,9 +24,6 @@ public class Statistic {
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
-//    @JoinColumn(name = "difficulty_id")
-//    @ManyToOne
-//    private Level difficulty;
     @JoinColumn(name = "user_id")
     @ManyToOne
     private User user;

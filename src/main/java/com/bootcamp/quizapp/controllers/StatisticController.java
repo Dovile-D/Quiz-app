@@ -67,10 +67,9 @@ public class StatisticController {
         } else {
             returnPage = new ModelAndView("index.html", model);
         }
-
         return returnPage;
-
     }
+
 
     @GetMapping("/statistics")
     public String showFullStatistics(ModelMap model, @RequestParam(name = "email") String urlEmail){

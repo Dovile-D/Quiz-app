@@ -30,10 +30,10 @@ public class StatisticService {
      */
     public int getAveragecoreOfCategory(List<Statistic> statisticList, Category category) {
 
-        return (getAverageScoreValue(calculateTimesPlayed(category, statisticList), calculateScoreSumInCategory(category, statisticList)));
+        return (getAverageScoreValue(calculateTimesPlayed(category, statisticList),
+                calculateScoreSumInCategory(category, statisticList)));
 
     }
-
 
 
     /**
