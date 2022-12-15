@@ -1,12 +1,24 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org/">
+<html lang="en">
 
-<head th:replace="fragments" :: head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="index.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+            crossorigin="anonymous"></script>
+    <script src="./userOption.js" defer></script>
+    <title>Quiz-app Quizzy</title>
+</head>
 
 <body>
     <div class="card login" style="width: 18rem;">
 
-        <img class="card-img-top" src="cat.png" alt="Avatar">
+        <img class="card-img-top" src="cat.png" alt="Avatar" id="avatar">
         <div class="card-body">
 
             <h5 class="card-title" id="card-title">Let's roll!</h5>
@@ -14,7 +26,7 @@
             <div class="user_options">
                 <br><br>
                 <form id="play" action="selectCategory">
-                    <input type="submit" name="playGame" class="btn btn-outline-info btn-block" value="Play">
+                    <input type="submit" name="playGame" class="btn btn-outline-info btn-block" value="Play" >
                 </form>
                 <br>
                 <form id="statistics" action="statistics">
@@ -22,7 +34,7 @@
                 </form>
                 <br>
                 <form id="logout" action="logout">
-                    <input type="submit" name="logout" class="btn btn-outline-secondary btn-block" value="Log out">
+                    <input type="submit" name="logout" class="btn btn-outline-secondary btn-block" id="logoutBtn" value="Log out">
                 </form>
                 <br>
             </div>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org/">
+
+<head th:replace="fragments" :: head>
+
+<body>
+    <div class="container card login" style="width: 18rem;">
+        <img class="card-img-top" src="/Logo.png" alt="Question mark image">
+        <div class="card-body">
+            <h2>Welcome</h2>
+            <form action="login">
+                <input type="submit" class="startButton btn btn-outline-info btn-block " value="Login">
+            </form>
+            <form action="selectCategory">
+                <input type="submit" class="startButton btn btn-outline-info btn-block " value="Play!">
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

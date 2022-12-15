@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:replace="fragments" :: head>
+
+<body>
+    <div class="card login" style="width: 18rem;">
+        <img class="card-img-top" src="cat.png" alt="Avatar">
+        <div class="card-body">
+            <h5 class="card-title" id="card-title">Amazing!</h5>
+            <form action="singleGameStats">
+                <div class="single-user-stat">
+                    You scored<br>
+                    <p class="score">{X} / 20</p>
+                </div>
+            </form>
+            <form action="userOptions">
+                <button type="submit" class="btn btn-outline-primary btn-block">Close</button>
+            </form>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
