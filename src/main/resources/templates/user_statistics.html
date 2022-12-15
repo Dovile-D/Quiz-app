@@ -1,8 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org/">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
 
-<head th:replace="fragments" :: head>
-    <script th:src="@{./stat.js}"></script>
+<!--<head th:replace="fragments" :: head>-->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="index.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+            crossorigin="anonymous"></script>
+    <!--     <script src=game.js defer></script>-->
+<!--    <script src="./stat.js" defer></script>-->
+    <title>Quiz-app</title>
 </head>
 
 <body>
@@ -13,25 +25,19 @@
         <div class="card-body">
 
             <h5 class="card-title" id="card-title">You are doing great!</h5>
-
-<!--            private int userId;-->
-<!--            private String categoryName;-->
-<!--            private int averageScore;-->
-<!--            private int timesPlayed;-->
-
             <div class="user-statistics">
+                <p>Your correct answers</p>
                 <table class="table-sm  table-hover">
-                    <p>Your correct answer averages</p>
+
                     <thead class="thead-light table-info">
                         <th scope="col">Category</th>
                         <th scope="col"> Score</th>
-<!--                        <th scope="col">Times Played</th>-->
                     </thead>
 <!-- https://stackoverflow.com/questions/69740440/updating-an-html-data-table-using-thymeleaf-java-and-spring-mvc-->
                     <tbody>
-                    <tr th:each="entry : ${entries}"} >
-                        <td th:text="&{entries.category}"></td>
-                        <td th:text="&{entries.score}"></td>
+                    <tr th:each="dto : ${dtoList}"} >
+                        <td th:text="${dto.categoryName}">Category</td>
+                        <td th:text="${dto.score}">0</td>
                     </tr>
 <!--                        <tr>-->
 <!--                            <td>Arts & Literature</td>-->

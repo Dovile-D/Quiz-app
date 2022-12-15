@@ -20,7 +20,7 @@ public class StatisticFromFeDtoToStatistic {
         String properCategoryName = categoryService.getProperCategoryName(statisticFromFeDto.getCategoryName());
 
         Statistic statistic = Statistic.builder()
-                .user(userRepository.getUserByUsername(statisticFromFeDto.getUserName()))
+                .user(userRepository.getUserByEmail(statisticFromFeDto.getUserEmail()))
                 .category(categoryRepository.getCategoryByCategoryName(properCategoryName))
                 .score(Integer.parseInt(statisticFromFeDto.getScore()))
                 .build();

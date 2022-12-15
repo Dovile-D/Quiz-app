@@ -40,21 +40,21 @@ public class StatisticController {
 
 
     @GetMapping("/singleGameStatistics") // OK
-    public ModelAndView getStatisticFromFe(ModelMap model, @RequestParam(name = "user", required = false) String userName,
+    public ModelAndView getStatisticFromFe(ModelMap model, @RequestParam(name = "email", required = false) String userEmail,
                                            @RequestParam(name = "categories") String categoryName,
                                            @RequestParam(name = "score") String score) {
 
         ModelAndView returnPage = null;
 
-        if (!userName.equals("")) {
+        if (!userEmail.equals("")) {
             //        building Statistic object from received params
             StatisticFromFeDto statisticEntry = StatisticFromFeDto.builder()
-                    .userName(userName)
+                    .userEmail(userEmail)
                     .categoryName(categoryName)
                     .score(score)
                     .build();
 
-            log.info(":: email = {}, categoryName = {}, score = {} ", userName, categoryName, score);
+            log.info(":: email = {}, categoryName = {}, score = {} ", userEmail, categoryName, score);
 
 //        mapping dto to entity:
             Statistic mappedEntry = statisticMapper.mapStatisticDtoToStatistic(statisticEntry);
@@ -72,7 +72,7 @@ public class StatisticController {
 
 
     @GetMapping("/statistics")
-    public String showFullStatistics(ModelMap model, @RequestParam(name = "email") String urlEmail){
+    public ModelAndView showFullStatistics(ModelMap model, @RequestParam(name = "email") String urlEmail){
 
         int userId = userRepository.getUserByEmail(urlEmail).getId();
         List<Statistic> statisticListFromDB = statisticRepository.getStatisticByUserId(userId);
@@ -87,10 +87,8 @@ public class StatisticController {
                 dtoList.add(dto);
             }
             log.info(dtoList.toString());
-            model.addAttribute("entries", dtoList);
-
+            model.addAttribute("dtoList", dtoList);
         }
-        return "entries";
+        return new ModelAndView("user_statistics.html", "dtoList", model);
     }
-
 }

@@ -11,7 +11,7 @@ import lombok.RequiredArgsConstructor;
 @AllArgsConstructor
 public class StatisticFromFeDto {
 
-    private String userName;
+    private String userEmail;
     private String categoryName;
     private String score;
 }
