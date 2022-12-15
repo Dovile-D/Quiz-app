@@ -31,6 +31,9 @@ public class StatisticService {
     public StatisticToFeDto getStatisticToFeDtos(List<Statistic> statisticList, User user, Category category) {
 
 //        TODO need to check category
+//        userId == statisticListRepository.getUserId
+//        reikia sugrupuoti kategorijas pagal pavadinima, kad rodytu tik po 1 objekta kiekvienai kategorijai
+//        reikia
         List<StatisticToFeDto> statisticToFeDtos = new ArrayList<>();
         statisticList.stream().forEach( c -> StatisticToFeDto.builder()
                 .userId(user.getId())
@@ -43,6 +46,10 @@ public class StatisticService {
 
         return null;
     }
+
+//    public List<Category> groupCategoriesByName(String catName, List<Statistic> statisticList) {
+//        statisticList.stream().forEach(c -> c.fil);
+//    }
 
 
     /**
@@ -90,4 +97,6 @@ public class StatisticService {
     public int getAverageScoreValue(int numberOfEntries, int sumOfAllScores) {
         return Math.round(sumOfAllScores / numberOfEntries);
     }
+
+
 }
