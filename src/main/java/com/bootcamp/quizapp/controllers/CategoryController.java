@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.List;
 
 @RestController
 @RequestMapping("/")
@@ -16,11 +15,6 @@ import java.util.List;
 public class CategoryController {
 
     private final CategoryRepository categoryRepository;
-
-//    @GetMapping(value = "/categories")
-//    public List<Category> getCategories() {
-//        return categoryRepository.findAll();
-//    }
 
     @GetMapping(value = "/categories/{id}")
      public Category getCategory(@PathVariable int id) {

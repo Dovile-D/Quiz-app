@@ -34,16 +34,7 @@ public class UserController {
 
         User newUser = registrationService.register(formName, formEmail, formPassword);
 
-//        User newUser = User.builder()
-//                .username(formName)
-//                .email(formEmail)
-//                .password(formPassword)
-//                .build();
-//
-//        log.info(newUser.toString());
-
         userRepository.save(newUser);
-
 
         return new ModelAndView("login.html", model); }
 

@@ -22,39 +22,24 @@ public class StatisticService {
     private final CategoryRepository categoryRepository;
 
     /**
-     * Method for getting a list of StatisticToFeDto objects
+     * Method for getting an averahe score in particular category
+     *
      * @param statisticList passed list of statistic POJOs
-     * @param user user
-     * @param category category
-     * @return a list of StatisticToFeDto objects
+     * @param category      category
+     * @return an average score value in particular category
      */
-    public StatisticToFeDto getStatisticToFeDtos(List<Statistic> statisticList, User user, Category category) {
+    public int getAveragecoreOfCategory(List<Statistic> statisticList, Category category) {
 
-//        TODO need to check category
-//        userId == statisticListRepository.getUserId
-//        reikia sugrupuoti kategorijas pagal pavadinima, kad rodytu tik po 1 objekta kiekvienai kategorijai
-//        reikia
-        List<StatisticToFeDto> statisticToFeDtos = new ArrayList<>();
-        statisticList.stream().forEach( c -> StatisticToFeDto.builder()
-                .userId(user.getId())
-                .categoryName(category.getCategoryName())
-                .averageScore(getAverageScoreValue(calculateTimesPlayed(category, statisticList), calculateScoreSumInCategory(category, statisticList)))
-                .timesPlayed(calculateTimesPlayed(category, statisticList))
-                .build());
+        return (getAverageScoreValue(calculateTimesPlayed(category, statisticList),
+                calculateScoreSumInCategory(category, statisticList)));
 
-//        TODO need to add to dto list
-
-        return null;
     }
-
-//    public List<Category> groupCategoriesByName(String catName, List<Statistic> statisticList) {
-//        statisticList.stream().forEach(c -> c.fil);
-//    }
 
 
     /**
      * method to sum all score values in particular category
-     * @param category category
+     *
+     * @param category      category
      * @param statisticList List of all entries i DB statistic table
      * @return sum of all score values in particular category
      */
@@ -90,6 +75,7 @@ public class StatisticService {
 
     /**
      * method to get average value of scores
+     *
      * @param numberOfEntries
      * @param sumOfAllScores
      * @return rounded average value of scores

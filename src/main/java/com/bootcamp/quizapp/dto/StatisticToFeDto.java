@@ -10,8 +10,6 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @AllArgsConstructor
 public class StatisticToFeDto {
-    private int userId;
     private String categoryName;
-    private int averageScore;
-    private int timesPlayed;
+    private int score;
 }
