@@ -31,8 +31,12 @@ public ModelAndView checkUserLogin(ModelMap model, @RequestParam(name = "email")
 
         ModelAndView returnedPage = null;
 
+//        checking if provided email is in DB
+
+
 // checking if the password matches encrypted password
-        if(bcrypt.matches(urlPassword, userRepository.getUserByEmail(urlEmail).getPassword())) {
+        if(userRepository.existsUserByEmail(urlEmail) &&
+                bcrypt.matches(urlPassword, userRepository.getUserByEmail(urlEmail).getPassword())) {
             returnedPage = new ModelAndView("user_option.html", model);
         }
         else {
