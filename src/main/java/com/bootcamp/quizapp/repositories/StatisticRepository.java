@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface StatisticRepository extends CrudRepository<Statistic, Integer> {
 
-    List<Statistic> getStatisticsByUserId(int id);
+    List<Statistic> getStatisticByUserId(int id);
 
 }

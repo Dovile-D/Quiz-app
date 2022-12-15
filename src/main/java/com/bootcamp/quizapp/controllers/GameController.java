@@ -14,20 +14,13 @@ public class GameController {
     @GetMapping("/")  // OK
     public String showFrontPage(){return ("index");}
 
-//    @GetMapping("/userOptions")
-//    public String showRegisteredUserOptions(){ return ("user_option.html"); }
+
 
     @GetMapping("/selectCategory")  // OK
     public String showSelectCategory(){
         return ("selectCategory");
     }
 
-//    @GetMapping("/singleGameStatistics") // OK
-//    public String showSingleGameStatistics() {
-//
-//
-//        return "singleGameStatistics"; }
-//    when user is not a registered one, then the redirect should be back to index.html
 
     @GetMapping("/difficulty") //OK
     public String openLogin(){
@@ -39,10 +32,6 @@ public class GameController {
         return ("game.html");
     }
 
-    @GetMapping("/statistics")
-    public String showFullStatistics(){
-        return "user_statistics.html";
-    }
 
     @GetMapping("/logout")
     public String logout(){
