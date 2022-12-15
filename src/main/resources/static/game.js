@@ -6,7 +6,7 @@ var selectedCategory = "";
 var gameUrlApiFetch = "";
 
 // Global session variables
-var TOTAL_QUESTIONS = 20;
+var TOTAL_QUESTIONS = 5;
 
 // Getting user selected parameters
 const queryURLString = window.location.search;

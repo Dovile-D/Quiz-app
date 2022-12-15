@@ -56,7 +56,7 @@ public class StatisticController {
 //        saving entity to DB:
             statisticRepository.save(mappedEntry);
 
-            returnPage = new ModelAndView("user_option.html", model);
+            returnPage = new ModelAndView("singleGameStatistics.html", model);
         } else {
             returnPage = new ModelAndView("index.html", model);
         }

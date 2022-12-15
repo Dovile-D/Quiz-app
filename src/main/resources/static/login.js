@@ -2,16 +2,32 @@
 
 var userID;
 var userName;
+var userEmail;
 //var userAvatar;
 
-//getUrlParam
-document.getElementById("loginBtn").addEventListener("click", setValues);
+console.log(window.performance.getEntriesByType("navigation"));
 
+
+if (window.location.pathname == "/registered"){
+document.getElementById("regSuccess").textContent="Registration successful! Log-in please:";
+document.getElementById("regSuccess").style.color="white";
+document.getElementById("regSuccess").style.backgroundColor="#5ca4da";
+} else if(window.location.pathname == "/userOptions"){
+document.getElementById("regSuccess").textContent="Wrong credentials, try again";
+document.getElementById("regSuccess").style.color="white";
+document.getElementById("regSuccess").style.backgroundColor="red";
+}
+ else {document.getElementById("regSuccess").style.display = "none"}
+
+document.getElementById("loginBtn").addEventListener("click", setValues);
 function setValues(){
-//    e.preventDefault();
-    let userOnLogin = document.getElementById("user").value
-    sessionStorage.setItem("userName", userOnLogin);
-    sessionStorage.setItem("userID","5");
-    console.log("LoginB: userName: " + sessionStorage.getItem("userName"));
-    console.log("LoginB: userID: " + sessionStorage.getItem("userID"));
+    let userOnLogin = document.getElementById("userEmail").value
+    sessionStorage.setItem("userEmail", userOnLogin);
+    let nameGetter = userOnLogin.split("@")[0]
+    let firstLetter = nameGetter.charAt(0)
+    let firstLetterCap = firstLetter.toUpperCase()
+    let remainingLetters = nameGetter.slice(1)
+    let capitalizedName = firstLetterCap + remainingLetters
+    sessionStorage.setItem("userName", capitalizedName);
+//    sessionStorage.setItem("userID","5");
 }
