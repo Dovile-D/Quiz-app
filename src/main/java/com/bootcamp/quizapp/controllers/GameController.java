@@ -14,8 +14,8 @@ public class GameController {
     @GetMapping("/")  // OK
     public String showFrontPage(){return ("index");}
 
-    @GetMapping("/userOptions")
-    public String showRegisteredUserOptions(){ return ("user_option.html"); }
+//    @GetMapping("/userOptions")
+//    public String showRegisteredUserOptions(){ return ("user_option.html"); }
 
     @GetMapping("/selectCategory")  // OK
     public String showSelectCategory(){
