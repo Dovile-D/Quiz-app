@@ -2,6 +2,8 @@
 <html lang="en" xmlns:th="http://thymeleaf.org/">
 
 <head th:replace="fragments" :: head>
+    <script th:src="@{./stat.js}"></script>
+</head>
 
 <body>
 
@@ -22,66 +24,70 @@
                     <p>Your correct answer averages</p>
                     <thead class="thead-light table-info">
                         <th scope="col">Category</th>
-                        <th scope="col">Average Score</th>
-                        <th scope="col">Times Played</th>
+                        <th scope="col"> Score</th>
+<!--                        <th scope="col">Times Played</th>-->
                     </thead>
 <!-- https://stackoverflow.com/questions/69740440/updating-an-html-data-table-using-thymeleaf-java-and-spring-mvc-->
                     <tbody>
-                        <tr>
-                            <td>Arts & Literature</td>
-                            <td>0</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td>Film & TV</td>
-                            <td>0</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td>Food & Drink</td>
-                            <td>0</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td>General Knowledge</td>
-                            <td>0</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td>Geography</td>
-                            <td>0</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td>History</td>
-                            <td>0</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td>Music</td>
-                            <td>0</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td>Science</td>
-                            <td>0</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td>Society & Culture</td>
-                            <td>0</td>
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            <td>Sport & Leisure</td>
-                            <td>0</td>
-                            <td>0</td>
-                        </tr>
+                    <tr th:each="entry : ${entries}"} >
+                        <td th:text="&{entries.category}"></td>
+                        <td th:text="&{entries.score}"></td>
+                    </tr>
+<!--                        <tr>-->
+<!--                            <td>Arts & Literature</td>-->
+<!--                            <td>0</td>-->
+<!--                            <td>0</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>Film & TV</td>-->
+<!--                            <td>0</td>-->
+<!--                            <td>0</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>Food & Drink</td>-->
+<!--                            <td>0</td>-->
+<!--                            <td>0</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>General Knowledge</td>-->
+<!--                            <td>0</td>-->
+<!--                            <td>0</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>Geography</td>-->
+<!--                            <td>0</td>-->
+<!--                            <td>0</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>History</td>-->
+<!--                            <td>0</td>-->
+<!--                            <td>0</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>Music</td>-->
+<!--                            <td>0</td>-->
+<!--                            <td>0</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>Science</td>-->
+<!--                            <td>0</td>-->
+<!--                            <td>0</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>Society & Culture</td>-->
+<!--                            <td>0</td>-->
+<!--                            <td>0</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>Sport & Leisure</td>-->
+<!--                            <td>0</td>-->
+<!--                            <td>0</td>-->
+<!--                        </tr>-->
                     </tbody>
                 </table>
             </div>
             <form action="userOptions">
-                <button type="submit" class="btn btn-outline-primary btn-block">Close</button>
+                <button type="submit" id="closeBtn" class="btn btn-outline-primary btn-block">Close</button>
             </form>
         </div>
     </div>

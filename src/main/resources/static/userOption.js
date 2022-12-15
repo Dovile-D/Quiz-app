@@ -11,11 +11,12 @@ document.getElementById("logoutBtn").addEventListener("click", resetUser);
 function resetUser(e){
 e.preventDefault();
 sessionStorage.removeItem("userName");
-//sessionStorage.removeItem("userEmail");
+sessionStorage.removeItem("userEmail");
 sessionStorage.removeItem("userID");
 sessionStorage.removeItem("gameScore");
 sessionStorage.removeItem("difficultyLevel");
 sessionStorage.removeItem("incorrectAnswers");
 sessionStorage.removeItem("totalAnsweredQuestions");
+sessionStorage.removeItem("userPassword");
 window.location.replace("http://localhost:8080/");
 }

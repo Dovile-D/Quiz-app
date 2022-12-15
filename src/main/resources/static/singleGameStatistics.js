@@ -18,8 +18,8 @@ document.getElementById("gameExitButton").addEventListener("click", singleGameEx
 
 function singleGameExit(e){
     e.preventDefault();
-    if (sessionStorage.getItem("userID") == null){
+    if (sessionStorage.getItem("userEmail") == null){
         window.location.replace("http://localhost:8080");
     }
-    else {window.location.replace("http://localhost:8080/userOptions?user="+sessionStorage.getItem("userID"))}
+    else {window.location.replace("http://localhost:8080/userOptions?password=" + sessionStorage.getItem("userPassword") + "&email="+sessionStorage.getItem("userEmail"))}
 }
