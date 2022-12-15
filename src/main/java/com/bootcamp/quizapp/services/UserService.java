@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class UserService {
 
-    //    method to convert category name values from url to values in DB
+    //    method to convert category email values from url to values in DB
     public String getProperEmail(String emailFromUrl) {
 
         String convertedEmail = emailFromUrl.replace("%40", "@");
