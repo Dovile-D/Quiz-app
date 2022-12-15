@@ -11,6 +11,6 @@ public class RegistrationRequestDto {
     private final String username;
     private final String email;
     private final String password;
-    private String avatar;
+//    private String avatar;
 
 }

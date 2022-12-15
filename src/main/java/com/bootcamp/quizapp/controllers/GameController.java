@@ -9,8 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class GameController {
 
-    @GetMapping("/login")  // OK
-    public String showLogin(){ return ("login"); }
+
 
     @GetMapping("/")  // OK
     public String showFrontPage(){return ("index");}

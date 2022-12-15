@@ -12,19 +12,17 @@ public class RegistrationService {
     private UserDetailsService customUserDetailsService;
     private EmailValidator emailValidator;
 
-    public String register(RegistrationRequestDto request) {
+    public User register(String name, String email, String password) {
         boolean isValid = emailValidator
-                .test(request.getEmail());
+                .test(email);
         if (!isValid) {
             throw new IllegalStateException("This email not valid");
         }
         return  customUserDetailsService.signUpUser(
                 new User(
-                        request.getUsername(),
-                        request.getEmail(),
-                        request.getPassword(),
-                        request.getAvatar()
-                )
-        );
+                        name,
+                        email,
+                        password)
+                );
     }
 }

@@ -11,7 +11,7 @@ public class UserService {
     //    method to convert category name values from url to values in DB
     public String getProperEmail(String emailFromUrl) {
 
-        String convertedEmail = emailFromUrl.replace("%", "@");
+        String convertedEmail = emailFromUrl.replace("%40", "@");
 
         return convertedEmail;
     }
