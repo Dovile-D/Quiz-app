@@ -1,13 +1,10 @@
-document.getElementById("closeBtn").addEventListener("click", exitFn()=>{
-window.location.replace("http://localhost:8080/userOptions?password=" + sessionStorage.getItem("userPassword") + "&email="+sessionStorage.getItem("userEmail"));
-});
+window.onload = function (){
+document.getElementById("closeBtn").addEventListener("click", exitFn);
+}
 
-http://localhost:8080/userOptions?password=vaidas&email=vaidas@gmail.com
-//
-//function singleGameExit(e){
-//    e.preventDefault();
-//    if (sessionStorage.getItem("userEmail") == null){
-//        window.location.replace("http://localhost:8080");
-//    }
-//    else {}
-//}
+function exitFn(e){
+e.preventDefault();
+const redURL = "http://localhost:8080/userOptions?email="+sessionStorage.getItem("userEmail")+"&password="+sessionStorage.getItem("userPassword");
+console.log(redURL);
+window.location.replace(redURL);
+};

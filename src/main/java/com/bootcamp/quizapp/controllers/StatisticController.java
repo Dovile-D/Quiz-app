@@ -65,7 +65,7 @@ public class StatisticController {
 
             returnPage = new ModelAndView("singleGameStatistics.html", model);
         } else {
-            returnPage = new ModelAndView("index.html", model);
+            returnPage = new ModelAndView("singleGameStatistics.html", model);
         }
         return returnPage;
     }
@@ -87,8 +87,8 @@ public class StatisticController {
                 dtoList.add(dto);
             }
             log.info(dtoList.toString());
-            model.addAttribute("dtoList", dtoList);
+            model.addAttribute("dto", dtoList);
         }
-        return new ModelAndView("user_statistics.html", "dtoList", model);
+        return new ModelAndView("user_statistics.html", model);
     }
 }

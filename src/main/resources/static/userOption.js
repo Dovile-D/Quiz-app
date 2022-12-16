@@ -1,10 +1,12 @@
+document.getElementById("userStatsBttn").addEventListener("click", redirectToStats);
 
-//let pic = sessionStorage.getItem("userAvatar");
-//document.getElementById("avatar").src=pic;
-//document.getElementById("avatar").src=sessionStorage.getItem("userName");
+function redirectToStats(e){
+e.preventDefault();
+const redirectURL = "http://localhost:8080/statistics?&email=" + sessionStorage.getItem("userEmail");
+console.log(redirectURL);
+    window.location.replace(redirectURL);
+}
 
-//console.log("UO: Avatar: " + sessionStorage.getItem("userAvatar"));
-console.log("UO: Name: " + sessionStorage.getItem("userName"));
 document.getElementById("card-title").textContent = "Let's roll, " + sessionStorage.getItem("userName") + "!";
 document.getElementById("logoutBtn").addEventListener("click", resetUser);
 

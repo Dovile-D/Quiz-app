@@ -6,7 +6,7 @@ var selectedCategory = "";
 var gameUrlApiFetch = "";
 
 // Global session variables
-var TOTAL_QUESTIONS = 5;
+var TOTAL_QUESTIONS = 10;
 
 // Getting user selected parameters
 const queryURLString = window.location.search;
@@ -25,7 +25,6 @@ gameUrlApiFetch = mainURL + category + interimParam + difficulty;
     if (
     (sessionStorage.getItem("totalAnsweredQuestions") == null) ||
     (sessionStorage.getItem("totalAnsweredQuestions") < TOTAL_QUESTIONS))
-//if (sessionStorage.getItem("totalAnsweredQuestions") == null)
 {getQuestions();}
  else { lastQuestionAnswered(); }
 
@@ -91,7 +90,7 @@ function checkAnswer(e) {
             }}}
     // reloads page to itself after 2 seconds after the answer correctness is showed to a user
     setTimeout(() => {
-        location.reload();
+        window.location.reload();
     }, 2000);
 }
 
@@ -113,6 +112,10 @@ function lastQuestionAnswered() {
 document.getElementById("seeResultsBttn").addEventListener("click", redirect);
  function redirect(e){
     e.preventDefault();
-    var lastUrl = "http://localhost:8080/singleGameStatistics?categories="+category+"&difficulty=" + difficulty + "&score=" + Math.round(sessionStorage.getItem("gameScore") / 2) + "&user=" + sessionStorage.getItem("userID") ;
-    window.location.replace(lastUrl);
-    }
+    if (!sessionStorage.getItem("userEmail")){
+    let redirectURL = "http://localhost:8080/singleGameStatistics?categories="+category+"&difficulty=" + difficulty + "&score=" + sessionStorage.getItem("gameScore")  + "&email=";
+    window.location.replace(redirectURL);
+    } else {
+    let redirectURL = "http://localhost:8080/singleGameStatistics?categories="+category+"&difficulty=" + difficulty + "&score=" + sessionStorage.getItem("gameScore")  + "&email=" + sessionStorage.getItem("userEmail");
+    window.location.replace(redirectURL);
+    }}

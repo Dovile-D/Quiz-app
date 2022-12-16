@@ -34,7 +34,7 @@ public class LoginController {
 // checking if provided email is in DB & checking if the password matches encrypted password
         if (userRepository.existsUserByEmail(urlEmail) &&
                 bcrypt.matches(urlPassword, userRepository.getUserByEmail(urlEmail).getPassword())) {
-            returnedPage = new ModelAndView("user_option.html", model);
+            returnedPage = new ModelAndView("userOptions.html", model);
         } else {
             returnedPage = new ModelAndView("login.html", model);
         }

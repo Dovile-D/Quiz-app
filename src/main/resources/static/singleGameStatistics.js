@@ -1,21 +1,17 @@
-const queryURLString = window.location.search;
-const urlParameters = new URLSearchParams(queryURLString);
-var score = urlParameters.get('score');
-var totalQ = urlParameters.get('totalQ');
-var user = urlParameters.get('user');
+const queryURString = window.location.search;
+const urlParameters1 = new URLSearchParams(queryURString);
+var score = urlParameters1.get('score');
+var user = urlParameters1.get('user');
 
 if (sessionStorage.getItem("userID") != null) {
 document.getElementById("card-title").textContent = "Amazing, " +sessionStorage.getItem("userName")+ "!"
 }
 else {}
 
-//document.getElementById("resultInfo").textContent = score;
-let result = Math.round(sessionStorage.getItem("gameScore") / 2);
+let result = sessionStorage.getItem("gameScore");
 document.getElementById("resultInfo").textContent = result;
-//+ " / " + totalQ;
 
 document.getElementById("gameExitButton").addEventListener("click", singleGameExit);
-
 function singleGameExit(e){
     e.preventDefault();
     if (sessionStorage.getItem("userEmail") == null){

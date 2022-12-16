@@ -1,24 +1,17 @@
-// reikia parsitempti varda  emaila  ir  paveiksliuka
-
 var userID;
 var userName;
 var userEmail;
 var userPassword;
-//var userAvatar;
-
-console.log(window.performance.getEntriesByType("navigation"));
-
 
 if (window.location.pathname == "/registered"){
-document.getElementById("regSuccess").textContent="Registration successful! Please log-in:";
-document.getElementById("regSuccess").style.color="white";
-document.getElementById("regSuccess").style.backgroundColor="#5ca4da";
+    document.getElementById("regSuccess").textContent="Registration successful! Please log-in:";
+    document.getElementById("regSuccess").style.color="white";
+    document.getElementById("regSuccess").style.backgroundColor="#5ca4da";
 } else if(window.location.pathname == "/userOptions"){
-document.getElementById("regSuccess").textContent="Wrong credentials, try again";
-document.getElementById("regSuccess").style.color="white";
-document.getElementById("regSuccess").style.backgroundColor="red";
-}
- else {document.getElementById("regSuccess").style.display = "none"}
+    document.getElementById("regSuccess").textContent="Wrong credentials, try again";
+    document.getElementById("regSuccess").style.color="white";
+    document.getElementById("regSuccess").style.backgroundColor="red";
+} else {document.getElementById("regSuccess").style.display = "none"}
 
 document.getElementById("loginBtn").addEventListener("click", setValues);
 function setValues(){
@@ -32,5 +25,4 @@ function setValues(){
     let remainingLetters = nameGetter.slice(1)
     let capitalizedName = firstLetterCap + remainingLetters
     sessionStorage.setItem("userName", capitalizedName);
-//    sessionStorage.setItem("userID","5");
 }

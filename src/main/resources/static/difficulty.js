@@ -1,12 +1,4 @@
-//const queryString = window.location.search;
-//console.log(queryString);
-//const urlParams = new URLSearchParams(queryString);
-// console.log(urlParams.has('categories'));
-//console.log("categoryLevel = " + window.categoryLevel);
-
 document.getElementById("difficultyButton").addEventListener("click", getDifficulty);
-//document.getElementsByName("input").addEventListener("submit", getDifficulty);
-//var userName;
 function getDifficulty(e) {
     e.preventDefault();
     let difficultySelector = document.getElementsByName("difficulty");
