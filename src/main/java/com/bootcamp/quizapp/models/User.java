@@ -3,13 +3,12 @@ package com.bootcamp.quizapp.models;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
 
+
+@Builder
 @Entity
 @Setter
 @Getter
@@ -20,7 +19,6 @@ import java.util.List;
 public class User implements UserDetails {
 
     @Id
-    //changed from IDENTITY TO AUTO
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private int id;
@@ -28,15 +26,10 @@ public class User implements UserDetails {
     private String username;
     @Column(name = "email")
     private String email;
-//    @Column(name = "role")
-//    private String role;
     @Column(name = "password")
     private String password;
     @Column(name = "avatar")
     private String avatar;
-//    @OneToMany(targetEntity = Statistic.class, cascade = CascadeType.ALL)
-//    @JoinColumn(name = "user_FK", referencedColumnName = "id")
-//    private List<Statistic> statisticList;
 
     public User (String username, String email, String password, String avatar){
         this.username=username;
@@ -44,6 +37,14 @@ public class User implements UserDetails {
         this.password=password;
         this.avatar=avatar;
     }
+
+//    adding constructor for creating user without avatar
+    public User(String username, String email, String password) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;

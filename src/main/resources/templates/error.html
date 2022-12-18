@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,28 +11,19 @@
             integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
             crossorigin="anonymous"></script>
     <!--     <script src=game.js defer></script>-->
-    <script src="./singleGameStatistics.js" defer type="module"></script>
+    <script src="./gameSetup.js" defer></script>
     <title>Quiz-app</title>
 </head>
 
 <body>
 <div class="card login" style="width: 18rem;">
-    <img class="card-img-top" src="cat.png" alt="Avatar">
+    <img class="card-img-top" src="brain.png" alt="Question mark image">
     <div class="card-body">
-        <h5 class="card-title" id="card-title">Amazing!</h5>
-        <form action="singleGameStats">
-            <div class="single-user-stat">
-                You scored<br>
-                <p class="score" id="resultInfo"></p>
-            </div>
-        </form>
-        <form action="userOptions">
-            <button type="submit" class="btn btn-outline-primary btn-block" id="gameExitButton">Close</button>
-        </form>
-
+        <h5 class="card-title" id="card-title">Ooops, something happened...</h5>
+            <input type="submit" id="backBtn" class="btn btn-outline-secondary btn-block btn-sm"
+                   value="No stress... Go back!">
     </div>
 </div>
-
 </body>
-
 </html>
+

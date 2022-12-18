@@ -6,32 +6,27 @@ var selectedCategory = "";
 var gameUrlApiFetch = "";
 
 // Global session variables
-var gameScore;
-var difficultyLevel;
-var categoryLevel;
-var totalAnsweredQuestions;
-console.log(" "+sessionStorage.getItem("totalAnsweredQuestions"));
-var TOTAL_QUESTIONS = 3;
+var TOTAL_QUESTIONS = 10;
 
-// sessionStorage.setItem("totalAnsweredQuestions", answeredQuestions);
-//setTimeout(()=>{},3000)
-
-// Getting URL parameters
+// Getting user selected parameters
 const queryURLString = window.location.search;
-//console.log(queryURLString);
 const urlParameters = new URLSearchParams(queryURLString);
 var category = urlParameters.get('categories');
 var difficulty = urlParameters.get('difficulty');
-//console.log(category +" - "+ difficulty)
 
-// URL constructor
-// API example : https://the-trivia-api.com/api/questions?categories=arts_and_literature&limit=1&difficulty=easy
+// URL for API fetch constructor
+// API URL example with parameters :
+// https://the-trivia-api.com/api/questions?categories=arts_and_literature&limit=1&difficulty=easy
 var mainURL = 'https://the-trivia-api.com/api/questions?categories=';
 var interimParam = "&limit=1&difficulty=";
 gameUrlApiFetch = mainURL + category + interimParam + difficulty;
 
 // Initial call to load question and answers
-getQuestions();
+    if (
+    (sessionStorage.getItem("totalAnsweredQuestions") == null) ||
+    (sessionStorage.getItem("totalAnsweredQuestions") < TOTAL_QUESTIONS))
+{getQuestions();}
+ else { lastQuestionAnswered(); }
 
 // Sets the array for the random indexes to put the answers to random labels
 function shuffleArray(indexes) {
@@ -42,56 +37,40 @@ shuffleArray(indexes);
 
 // fetch the data from API
 function getQuestions() {
-//    console.log(sessionStorage.getItem("totalAnsweredQuestions"));
+
     document.getElementById("seeResultsBttn").style.disabled = true;
     document.getElementById("seeResultsBttn").style.display = "none";
-    if (
-    (sessionStorage.getItem("totalAnsweredQuestions") == null)
-    (sessionStorage.getItem("totalAnsweredQuestions") < TOTAL_QUESTIONS)) {
-    console.log(" "+sessionStorage.getItem("totalAnsweredQuestions"));
             fetch(gameUrlApiFetch)
             .then((response) => {
                 if (response.ok) { return response.json(); }
-                else {
-                    throw new Error("Network connection error: " + response);
-                }
-            })
+                else {throw new Error("Network connection error: " + response);}})
             .then(data => { setQuestionContent(data) ; console.log(" "+sessionStorage.getItem("totalAnsweredQuestions"));})
-            .catch((error) => console.error("FETCH ERROR:", error));
-    } else { lastQuestionAnswered() }
-}
+            .catch((error) => console.error("FETCH ERROR:", error));}
 
 // Set the card content from the API
 function setQuestionContent(data) {
-console.log(" "+sessionStorage.getItem("totalAnsweredQuestions"));
     // Set question and related info
     document.querySelector("h5").textContent = data[0].question;
-    document.querySelector("h6").textContent =
-        "Category: " + data[0].category +
-        ". Difficulty: " + data[0].difficulty +
-        ". Question: " + sessionStorage.getItem("totalAnsweredQuestions") + " / " + TOTAL_QUESTIONS;
-    // Randomize answers
+    document.querySelector("h6").textContent = "Category: " + data[0].category + ". Difficulty: " + data[0].difficulty;
+
     document.getElementById(`answer${indexes[0]}`).textContent = data[0].incorrectAnswers[0];
     document.getElementById(`answer${indexes[1]}`).textContent = data[0].incorrectAnswers[1];
     document.getElementById(`answer${indexes[2]}`).textContent = data[0].incorrectAnswers[2];
     document.getElementById(`answer${indexes[3]}`).textContent = data[0].correctAnswer;
     // self check
-    console.log("Correct answer " + indexes[3] + ": " + data[0].correctAnswer);
-    // increment total questions
-    answeredQuestions = sessionStorage.getItem("totalAnsweredQuestions");
-    console.log(" "+sessionStorage.getItem("totalAnsweredQuestions"));
-    answeredQuestions++;
-    console.log(" "+sessionStorage.getItem("totalAnsweredQuestions"));
-    sessionStorage.setItem("totalAnsweredQuestions", answeredQuestions);
-    console.log(" "+sessionStorage.getItem("totalAnsweredQuestions"));
-}
-console.log(" "+sessionStorage.getItem("totalAnsweredQuestions"));
-document.querySelector("button[id=checkAndNextButton]").addEventListener("click", checkAnswer);
 
-// Check if the answer is correct    
+    console.log("Correct answer " + indexes[3] + ": " + data[0].correctAnswer);}
+
+// Check if the answer is correct
+
+document.querySelector("button[id=checkAndNextButton]").addEventListener("click", checkAnswer);
 function checkAnswer(e) {
     e.preventDefault();
-    console.log("On button "+sessionStorage.getItem("totalAnsweredQuestions"));
+
+        answeredQuestions = sessionStorage.getItem("totalAnsweredQuestions");
+        answeredQuestions++;
+        sessionStorage.setItem("totalAnsweredQuestions", answeredQuestions);
+
     // get selected input
     let answer = document.getElementsByName("answer");
     const pathEl = document.getElementById("info")
@@ -106,17 +85,20 @@ function checkAnswer(e) {
                 correct = sessionStorage.getItem("gameScore");
                 correct++;
                 sessionStorage.setItem("gameScore", correct);
-                console.log(sessionStorage.getItem("gameScore"));
+                Math.round(sessionStorage.getItem("gameScore") / 2)
             } else {
                 document.body.style.background = "red";
+
+                let incorrect = sessionStorage.getItem("incorrectAnswers");
+                incorrect++;
+                sessionStorage.setItem("incorrectAnswers", incorrect);
                 pathEl.style.color = "red";
-                pathEl.textContent = "Incorrect! Correct answer: " + indexes[3] + " ";
+                pathEl.textContent = "Incorrect! Correct answer: " + indexes[3];
             }}}
     // reloads page to itself after 2 seconds after the answer correctness is showed to a user
     setTimeout(() => {
-    console.log("On timeout "+sessionStorage.getItem("totalAnsweredQuestions"));
-//        history.go(0)
-        location.reload();
+        window.location.reload();
+
     }, 2000);
 }
 
@@ -136,18 +118,13 @@ function lastQuestionAnswered() {
 }
 
 document.getElementById("seeResultsBttn").addEventListener("click", redirect);
-
  function redirect(e){
     e.preventDefault();
-    var lastUrl = "http://localhost:8080/singleGameStatistics?categories="+category+"&difficulty=" + difficulty + "&totalQ="+TOTAL_QUESTIONS+"&score=" + sessionStorage.getItem("gameScore") + "&user=";
-    window.location.replace(lastUrl);
-    }
+    if (!sessionStorage.getItem("userEmail")){
+    let redirectURL = "http://localhost:8080/singleGameStatistics?categories="+category+"&difficulty=" + difficulty + "&score=" + sessionStorage.getItem("gameScore")  + "&email=";
+    window.location.replace(redirectURL);
+    } else {
+    let redirectURL = "http://localhost:8080/singleGameStatistics?categories="+category+"&difficulty=" + difficulty + "&score=" + sessionStorage.getItem("gameScore")  + "&email=" + sessionStorage.getItem("userEmail");
+    window.location.replace(redirectURL);
+    }}
 
-function resetResults(){
-    sessionStorage.setItem("gameScore", "0");
-    sessionStorage.setItem("totalAnsweredQuestions", "0");
-    TOTAL_QUESTIONS = 0;
-    console.log("Game score = " + sessionStorage.getItem("gameScore"));
-    console.log("Answered questions = " + sessionStorage.getItem("totalAnsweredQuestions"));
-    console.log("Total questions = " + TOTAL_QUESTIONS);
-}

@@ -15,42 +15,43 @@
 </head>
 
 <body>
-    <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="/question-mark.png" alt="Question mark image">
-        <div class="card-body">
-            <h6></h6>
-            <h5 class="card-title" id="card-title"></h5>
-            <form id="game-form">
-                <div class="form-check">
-                    <input class="form-check-input" type="radio"id="1" name="answer" value="1"></input>
-                    <label class="form-check-label" for="1" id="answer1"></label>
-                </div>
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="/question-mark.png" alt="Question mark image">
+    <div class="card-body">
+        <h6></h6>
+        <h5 class="card-title" id="card-title"></h5>
+        <form id="game-form">
+            <div class="form-check">
+                <input class="form-check-input" type="radio"id="1" name="answer" value="1"></input>
+                <label class="form-check-label" for="1" id="answer1"></label>
+            </div>
 
-                <div class="form-check">
-                    <input class="form-check-input" type="radio"id="2" name="answer" value="2"></input>
-                    <label class="form-check-label" for="2" id="answer2"></label>
-                </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio"id="2" name="answer" value="2"></input>
+                <label class="form-check-label" for="2" id="answer2"></label>
+            </div>
 
-                <div class="form-check">
-                    <input class="form-check-input" type="radio"id="3" name="answer" value="3"></input>
-                    <label class="form-check-label" for="3" id="answer3"></label>
-                </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio"id="3" name="answer" value="3"></input>
+                <label class="form-check-label" for="3" id="answer3"></label>
+            </div>
 
-                <div class="form-check">
-                    <input class="form-check-input" type="radio"id="4" name="answer" value="4"></input>
-                    <label class="form-check-label" for="4" id="answer4"></label>
-                </div>
-                <div id="info"></div>
-                <button type="submit" class="btn btn-outline-primary btn-block" id="checkAndNextButton">Check &
-                    Next</button>
-            </form>
+            <div class="form-check">
+                <input class="form-check-input" type="radio"id="4" name="answer" value="4"></input>
+                <label class="form-check-label" for="4" id="answer4"></label>
+            </div>
+            <div id="info"></div>
+            <button type="submit" class="btn btn-outline-primary btn-block" id="checkAndNextButton">Check &
+                Next</button>
+        </form>
 
-            <form action="singleGameStatistics">
-                <input type="submit" class="btn btn-outline-primary btn-block" value="See results" id="seeResultsBttn">
-            </form>
-        </div>
+        <form action="singleGameStatistics">
+            <input type="submit" class="btn btn-outline-primary btn-block" value="See results" id="seeResultsBttn">
+        </form>
+
     </div>
-    </div>
-    <script src="game.js" defer></script>
+</div>
+</div>
+<script src="game.js" defer></script>
 </body>
 </html>

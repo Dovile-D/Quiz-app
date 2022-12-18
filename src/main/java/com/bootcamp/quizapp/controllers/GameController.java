@@ -9,23 +9,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class GameController {
 
-    @GetMapping("/login")  // OK
-    public String showLogin(){ return ("login"); }
-
     @GetMapping("/")  // OK
     public String showFrontPage(){return ("index");}
-
-    @GetMapping("/userOptions")
-    public String showRegisteredUserOptions(){ return ("user_option.html"); }
 
     @GetMapping("/selectCategory")  // OK
     public String showSelectCategory(){
         return ("selectCategory");
     }
-
-    @GetMapping("/singleGameStatistics") // OK
-    public String showSingleGameStatistics() { return "singleGameStatistics"; }
-//    when user is not a registered one, then the redirect should be back to index.html
 
     @GetMapping("/difficulty") //OK
     public String openLogin(){
@@ -35,11 +25,6 @@ public class GameController {
     @GetMapping("/playGame") //OK
     public String startGameCategory(){
         return ("game.html");
-    }
-
-    @GetMapping("/statistics")
-    public String showFullStatistics(){
-        return "user_statistics.html";
     }
 
     @GetMapping("/logout")

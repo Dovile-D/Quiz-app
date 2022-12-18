@@ -11,7 +11,5 @@ import lombok.RequiredArgsConstructor;
 @AllArgsConstructor
 @RequiredArgsConstructor
 public class TriviaCategoryDto {
-
     private String name;
-
 }

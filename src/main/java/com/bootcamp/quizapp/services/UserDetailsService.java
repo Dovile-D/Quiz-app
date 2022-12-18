@@ -27,7 +27,7 @@ public class UserDetailsService implements org.springframework.security.core.use
                                 String.format(USER_NOT_FOUND_MSG, email)));
     }
 
-    public String signUpUser(User user) {
+    public User signUpUser(User user) {
         boolean userExists = userRepository
                 .findByEmail(user.getEmail())
                 .isPresent();
@@ -40,7 +40,7 @@ public class UserDetailsService implements org.springframework.security.core.use
                 .encode(user.getPassword());
         user.setPassword(encodedPassword);
         userRepository.save(user);
-        return "New user was created";
+        return user;
     }
 }
 
