@@ -37,6 +37,7 @@ shuffleArray(indexes);
 
 // fetch the data from API
 function getQuestions() {
+
     document.getElementById("seeResultsBttn").style.disabled = true;
     document.getElementById("seeResultsBttn").style.display = "none";
             fetch(gameUrlApiFetch)
@@ -51,20 +52,25 @@ function setQuestionContent(data) {
     // Set question and related info
     document.querySelector("h5").textContent = data[0].question;
     document.querySelector("h6").textContent = "Category: " + data[0].category + ". Difficulty: " + data[0].difficulty;
+
     document.getElementById(`answer${indexes[0]}`).textContent = data[0].incorrectAnswers[0];
     document.getElementById(`answer${indexes[1]}`).textContent = data[0].incorrectAnswers[1];
     document.getElementById(`answer${indexes[2]}`).textContent = data[0].incorrectAnswers[2];
     document.getElementById(`answer${indexes[3]}`).textContent = data[0].correctAnswer;
     // self check
+
     console.log("Correct answer " + indexes[3] + ": " + data[0].correctAnswer);}
 
 // Check if the answer is correct
+
 document.querySelector("button[id=checkAndNextButton]").addEventListener("click", checkAnswer);
 function checkAnswer(e) {
     e.preventDefault();
+
         answeredQuestions = sessionStorage.getItem("totalAnsweredQuestions");
         answeredQuestions++;
         sessionStorage.setItem("totalAnsweredQuestions", answeredQuestions);
+
     // get selected input
     let answer = document.getElementsByName("answer");
     const pathEl = document.getElementById("info")
@@ -82,6 +88,7 @@ function checkAnswer(e) {
                 Math.round(sessionStorage.getItem("gameScore") / 2)
             } else {
                 document.body.style.background = "red";
+
                 let incorrect = sessionStorage.getItem("incorrectAnswers");
                 incorrect++;
                 sessionStorage.setItem("incorrectAnswers", incorrect);
@@ -91,6 +98,7 @@ function checkAnswer(e) {
     // reloads page to itself after 2 seconds after the answer correctness is showed to a user
     setTimeout(() => {
         window.location.reload();
+
     }, 2000);
 }
 
@@ -119,3 +127,4 @@ document.getElementById("seeResultsBttn").addEventListener("click", redirect);
     let redirectURL = "http://localhost:8080/singleGameStatistics?categories="+category+"&difficulty=" + difficulty + "&score=" + sessionStorage.getItem("gameScore")  + "&email=" + sessionStorage.getItem("userEmail");
     window.location.replace(redirectURL);
     }}
+

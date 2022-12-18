@@ -19,3 +19,4 @@ function singleGameExit(e){
     }
     else {window.location.replace("http://localhost:8080/userOptions?password=" + sessionStorage.getItem("userPassword") + "&email="+sessionStorage.getItem("userEmail"))}
 }
+

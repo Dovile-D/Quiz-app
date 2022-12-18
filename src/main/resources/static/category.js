@@ -1,3 +1,4 @@
+
 document.getElementById("categorySelectButton").addEventListener("click", getCategory)
 function getCategory(e) {
     let categorySelector = document.getElementsByName("category");

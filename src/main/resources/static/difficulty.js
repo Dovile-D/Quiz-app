@@ -1,4 +1,5 @@
 document.getElementById("difficultyButton").addEventListener("click", getDifficulty);
+
 function getDifficulty(e) {
     e.preventDefault();
     let difficultySelector = document.getElementsByName("difficulty");
@@ -13,3 +14,4 @@ function getDifficulty(e) {
         }
     }
     }
+
